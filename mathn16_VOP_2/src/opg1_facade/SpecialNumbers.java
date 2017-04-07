@@ -7,19 +7,27 @@ package opg1_facade;
 public class SpecialNumbers
 {
 
-    public boolean isEven(int x)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean isEven(int x){
+        boolean even = false;
+        if(x % 2 == 0){
+            even = true;
+        }return even;
     }
 
-    public boolean isPrime(int x)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean isPrime(int x){
+        boolean prime = false;
+        for(int i = 0; i<x; i++){
+            if(x % i == 0){
+                prime = true;
+            }
+        }return prime;
     }
 
-    public boolean isPowerOf2(int x)
-    {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean isPowerOf2(int x){
+        boolean powOfTwo = false;
+        if(Math.sqrt(x) % 2 == 0){
+            powOfTwo = true;
+        }return powOfTwo;
     }
 
     /**
