@@ -10,7 +10,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import opg1_facade.*;
 
 /**
  *
@@ -18,18 +19,44 @@ import javafx.scene.control.Label;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
-    private Label label;
+    private SpecialNumbers sN;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private TextField inputTF;
+    
+    @FXML
+    private TextField outputTF;
+
+    @FXML
+    void isEvenEvent(ActionEvent event) {
+        if(sN.isEven(Integer.parseInt(inputTF.getText()))) {
+            outputTF.setText(inputTF.getText() + " is an even number.");
+        }else{
+            outputTF.setText(inputTF.getText() + " is an uneven number.");
+        }
     }
-    
+
+    @FXML
+    void isPowOfTwo(ActionEvent event) {
+        if(sN.isPowerOf2(Integer.parseInt(inputTF.getText()))) {
+            outputTF.setText(inputTF.getText() + " is power of twos.");
+        }else{
+            outputTF.setText(inputTF.getText() + " is not power of twos.");
+        }
+    }
+
+    @FXML
+    void isPrimeEvent(ActionEvent event) {
+        if(sN.isPrime(Integer.parseInt(inputTF.getText()))) {
+            outputTF.setText(inputTF.getText() + " is a prime number.");
+        }else{
+            outputTF.setText(inputTF.getText() + " is not a prime number.");
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        sN = new SpecialNumbers();
     }    
     
 }
