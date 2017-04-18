@@ -2,12 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="325.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="mathn16_vop_2.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="325.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mathn16_vop_2.FXMLDocumentController">
    <children>
       <TabPane prefHeight="200.0" prefWidth="320.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -26,11 +29,32 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Untitled Tab 2">
+          <Tab text="Check Numbers">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="minTabTwo" layoutX="95.0" layoutY="45.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="maxTabTwo" layoutX="250.0" layoutY="45.0" prefHeight="25.0" prefWidth="50.0" />
+                        <Label layoutX="54.0" layoutY="49.0" text="Min:" />
+                        <Label layoutX="214.0" layoutY="49.0" text="Max:" />
+                        <Label layoutX="353.0" layoutY="49.0" text="Find" />
+                        <RadioButton fx:id="equalCheck" layoutX="353.0" layoutY="86.0" mnemonicParsing="false" onAction="#checkNumberSelection" text="Lige numre">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="selectionTabTwo" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="primeCheck" layoutX="353.0" layoutY="118.0" mnemonicParsing="false" onAction="#checkNumberSelection" text="Primtal" toggleGroup="$selectionTabTwo" />
+                        <RadioButton fx:id="powerCheck" layoutX="353.0" layoutY="148.0" mnemonicParsing="false" onAction="#checkNumberSelection" text="Potenser af 2" toggleGroup="$selectionTabTwo" />
+                        <Button layoutX="350.0" layoutY="215.0" mnemonicParsing="false" onAction="#clearTabTwo" text="Clear" />
+                        <TextArea fx:id="tabTwoTA" layoutX="54.0" layoutY="82.0" prefHeight="200.0" prefWidth="247.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

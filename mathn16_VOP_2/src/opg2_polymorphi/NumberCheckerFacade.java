@@ -12,8 +12,10 @@ public class NumberCheckerFacade
     private List<Integer> checkedNumbers = new LinkedList<>();
     public List<Integer> checkNumbers(int min, int max, CheckerInterface checker){
         for(int i = min; i <= max; i ++){
-            if(checker.check(i));
-        }
+            if(checker.check(i)) {
+                checkedNumbers.add(i);
+            }
+        }return checkedNumbers;
 
     }
 
