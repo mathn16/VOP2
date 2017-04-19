@@ -15,10 +15,10 @@ public class SpecialNumbers
     }
 
     public boolean isPrime(int x){
-        boolean prime = false;
-        for(int i = 0; i<x; i++){
+        boolean prime = true;
+        for(int i = 1; i<x; i++){
             if(x % i == 0){
-                prime = true;
+                prime = false;
             }
         }return prime;
     }

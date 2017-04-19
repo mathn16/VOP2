@@ -70,26 +70,26 @@ public class FXMLDocumentController implements Initializable {
         if(event.getSource().equals(equalCheck)) {
             cI = new EvenChecker();
             numberList = nCF.checkNumbers(Integer.parseInt(minTabTwo.getText()), Integer.parseInt(maxTabTwo.getText()), cI);
+            appender = "Lige tal: ";
             for(int i = 0; i < numberList.size(); i++){
-                appender += numberList.get(i);
-                appender += "Lige tal: af 2: " + numberList.size();
-            }
+                appender += numberList.get(i) + ", ";
+            }appender += numberList.size();
         }else if(event.getSource().equals(primeCheck)){
             cI = new PrimeChecker();
             numberList = nCF.checkNumbers(Integer.parseInt(minTabTwo.getText()), Integer.parseInt(maxTabTwo.getText()), cI);
+            appender = "Primtal: ";
             for(int i = 0; i < numberList.size(); i++){
-                appender += numberList.get(i);
-                appender += "Potenser af 2: " + numberList.size();
-            }
+                appender += numberList.get(i) + ", ";
+            }appender +=numberList.size();
         }else if(event.getSource().equals(powerCheck)){
             cI = new PowerOf2Checker();
-           numberList = nCF.checkNumbers(Integer.parseInt(minTabTwo.getText()), Integer.parseInt(maxTabTwo.getText()), cI);
+            numberList = nCF.checkNumbers(Integer.parseInt(minTabTwo.getText()), Integer.parseInt(maxTabTwo.getText()), cI);
+            appender = "Potenser af 2: ";
             for(int i = 0; i < numberList.size(); i++){
-                appender += numberList.get(i);
-                appender += "Potenser af 2: " + numberList.size();
-            }
+                appender += numberList.get(i) + ", ";
+            }appender += numberList.size();
         }numberList.clear();
-        tabTwoTA.setText("[" + appender + "]\n");
+        tabTwoTA.setText(tabTwoTA.getText() + "[" + appender + "]\n");
     }
 
     @FXML

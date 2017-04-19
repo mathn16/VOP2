@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -35,10 +38,10 @@ public class TourDeFranceMain {
     
     public void readFile() {
         try(BufferedReader br = new BufferedReader(new FileReader(filos))){
-            String checkForEmpty = br.readLine();
-            while(checkForEmpty != null){
-                racers = br.readLine().split("\t");
-                RacingCyclist rc = new RacingCyclist(racers[0], racers[1], racers[2], racers[3], Integer.parseInt(racers[4]), Integer.parseInt(racers[5]));
+            String checkForEmpty;
+            while((checkForEmpty = br.readLine()) != null){
+                racers = checkForEmpty.split("\t");
+                rc = new RacingCyclist(racers[0], racers[1], racers[2], racers[3], Integer.parseInt(racers[4]), Integer.parseInt(racers[5]));
                 list.add(rc);
             }
             br.close();
@@ -48,7 +51,18 @@ public class TourDeFranceMain {
     }
     
     public void sort(){
-        Collections.sort(list, rc.compareTo(list.get(0)));
+        Collections.sort(list, new Comparator<RacingCyclist>() {
+            @Override
+            public int compare(RacingCyclist o1, RacingCyclist o2) {
+                return o1.compareTo(o2);
+            }
+        });
+    }
+    
+    public Set<RacingCyclist> makeSortedSet(Comparator comp){
+        Set<RacingCyclist> racerSet = new TreeSet<>();
+            racerSet.add(comp.compare(RacingCyclist, rc));
+        return racerSet;
     }
     
     /**
@@ -56,8 +70,13 @@ public class TourDeFranceMain {
      */
     public static void main(String[] args) {
     TourDeFranceMain tfm = new TourDeFranceMain("tourdefrance.txt");
-    tfm.readFile();         
-    System.out.println("List:\n" + tfm.getList().subList(0, 10));
+//    tfm.sort();
+//    System.out.println("Sort:\n" + tfm.getList().subList(0, 10)); 
+
+    Comparator<RacingCyclist> comp = new CountryMountainComparator();
+    Set<RacingCyclist> countryMountainSet = tfm.makeSortedSet(comp);
+    System.out.println("Country/Mountain:\n" + countryMountainSet); 
+
     }
     
 }

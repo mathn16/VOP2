@@ -35,15 +35,7 @@ public class RacingCyclist implements Comparable<RacingCyclist>{
     
     @Override
     public int compareTo(RacingCyclist o){
-        String[] timeArray;
-        timeArray = getTime().split(":");
-        String hours = timeArray[0];
-        String minutes = timeArray[1];
-        String seconds = timeArray[2];
-        String total = hours + minutes + seconds;
-        int timedif = Integer.parseInt(total);
-        if(timedif < o.getTime())
-        return timedif;
+        return time.compareTo(o.time);
     }
 
     /**

@@ -6,16 +6,19 @@ public class Card implements CardInterface {
     private int suit;
 
     public Card(int face, int suit)  {  
-        // Implementer tjek af parametre og tildeling af værdier
-
+        if(face >= ACE && face <= KING && suit >= CLUBS && suit <= SPADES){
+            this.face = face;
+            this.suit = suit;
+        }else{
+            System.out.println("Illegal input. For face it must be a number between 1 and 13\nFor suits it must be a number between 1 and 4.");
+        }
     }
 
     @Override
     public String toString() {
         // Implementer generering af navn på kort
+        
         String cardName = "";
-
-
         return cardName;
     }
 

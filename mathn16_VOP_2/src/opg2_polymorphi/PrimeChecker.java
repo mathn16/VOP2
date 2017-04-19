@@ -13,10 +13,10 @@ public class PrimeChecker implements CheckerInterface{
 
     @Override
     public boolean check(int i) {
-        boolean prime = false;
-        for(int x = 0; x<i; x++){
+        boolean prime = true;
+        for(int x = 1; x<i; x++){
             if(i % x == 0){
-                prime = true;
+                prime = false;
             }
         }return prime;
     }
