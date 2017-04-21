@@ -26,6 +26,7 @@ public class TourDeFranceMain {
     private File filos;
     private String[] racers;
     private RacingCyclist rc;
+    private Set<RacingCyclist> racerSet;
     
     public TourDeFranceMain(String fileName){
         list = new ArrayList<>();
@@ -46,7 +47,7 @@ public class TourDeFranceMain {
             }
             br.close();
         }catch(IOException e){
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
     
@@ -60,8 +61,10 @@ public class TourDeFranceMain {
     }
     
     public Set<RacingCyclist> makeSortedSet(Comparator comp){
-        Set<RacingCyclist> racerSet = new TreeSet<>();
-            racerSet.add(comp.compare(RacingCyclist, rc));
+        racerSet = new TreeSet<>(comp);
+        for(RacingCyclist r : list) {
+            racerSet.add(r);
+        }
         return racerSet;
     }
     
@@ -69,14 +72,19 @@ public class TourDeFranceMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    TourDeFranceMain tfm = new TourDeFranceMain("tourdefrance.txt");
-//    tfm.sort();
-//    System.out.println("Sort:\n" + tfm.getList().subList(0, 10)); 
-
-    Comparator<RacingCyclist> comp = new CountryMountainComparator();
-    Set<RacingCyclist> countryMountainSet = tfm.makeSortedSet(comp);
-    System.out.println("Country/Mountain:\n" + countryMountainSet); 
-
+        
+        TourDeFranceMain tfm = new TourDeFranceMain("tourdefrance.txt");
+        
+//        tfm.readFile();
+//        System.out.println("List:\n" + tfm.getList().subList(0, 10));
+//
+//        tfm.sort();
+//        System.out.println("Sort:\n" + tfm.getList().subList(0, 10));
+//        
+//        Comparator<RacingCyclist> comp = new CountryMountainComparator();
+//        Set<RacingCyclist> countryMountainSet = tfm.makeSortedSet(comp);
+//        System.out.println("Country/Mountain:\n" + countryMountainSet);
+//        
     }
     
 }
