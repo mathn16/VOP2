@@ -32,16 +32,16 @@ public class Card implements CardInterface {
         String cardName = "";
         switch (suit) {
             case CLUBS:
-                cardName += CLUBS_NAME + "-";
+                cardName += CLUBS_NAME;
                 break;
             case DIAMONDS:
-                cardName += DIAMONDS_NAME + "-";
+                cardName += DIAMONDS_NAME;
                 break;
             case HEARTS:
-                cardName += HEARTS_NAME + "-";
+                cardName += HEARTS_NAME;
                 break;
             case SPADES:
-                cardName += SPADES_NAME + "-";
+                cardName += SPADES_NAME;
                 break;
         }
         switch (face) {
