@@ -14,7 +14,8 @@ public class PowerOf2Checker implements CheckerInterface {
     @Override
     public boolean check(int i) {
         boolean powOfTwo = false;
-        if(Math.sqrt(i) % 2 == 0){
+        double y = Math.sqrt(i);
+        if(y == (int)y){
             powOfTwo = true;
         }return powOfTwo;
     }

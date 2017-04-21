@@ -14,7 +14,8 @@ public class PrimeChecker implements CheckerInterface{
     @Override
     public boolean check(int i) {
         boolean prime = true;
-        for(int x = 1; x<i; x++){
+        int y = (int)(Math.sqrt(i))+1;
+        for(int x = 2; x<y; x++){
             if(i % x == 0){
                 prime = false;
             }

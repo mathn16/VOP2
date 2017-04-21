@@ -70,26 +70,23 @@ public class FXMLDocumentController implements Initializable {
         if(event.getSource().equals(equalCheck)) {
             cI = new EvenChecker();
             numberList = nCF.checkNumbers(Integer.parseInt(minTabTwo.getText()), Integer.parseInt(maxTabTwo.getText()), cI);
-            appender = "Lige tal: ";
             for(int i = 0; i < numberList.size(); i++){
                 appender += numberList.get(i) + ", ";
-            }appender += numberList.size();
+            }appender += "]\n" + "Lige tal: " + numberList.size();
         }else if(event.getSource().equals(primeCheck)){
             cI = new PrimeChecker();
             numberList = nCF.checkNumbers(Integer.parseInt(minTabTwo.getText()), Integer.parseInt(maxTabTwo.getText()), cI);
-            appender = "Primtal: ";
             for(int i = 0; i < numberList.size(); i++){
                 appender += numberList.get(i) + ", ";
-            }appender +=numberList.size();
+            }appender += "]\n" + "Primtal: " + numberList.size();
         }else if(event.getSource().equals(powerCheck)){
             cI = new PowerOf2Checker();
             numberList = nCF.checkNumbers(Integer.parseInt(minTabTwo.getText()), Integer.parseInt(maxTabTwo.getText()), cI);
-            appender = "Potenser af 2: ";
             for(int i = 0; i < numberList.size(); i++){
                 appender += numberList.get(i) + ", ";
-            }appender += numberList.size();
+            }appender += "]\n" + "Potenser af 2: " + numberList.size();
         }numberList.clear();
-        tabTwoTA.setText(tabTwoTA.getText() + "[" + appender + "]\n");
+        tabTwoTA.setText(tabTwoTA.getText() + "[" + appender + "\n");
     }
 
     @FXML
@@ -114,7 +111,7 @@ public class FXMLDocumentController implements Initializable {
     void isPrimeEvent(ActionEvent event) {
         if(sN.isPrime(Integer.parseInt(inputTF.getText()))) {
             outputTF.setText(inputTF.getText() + " is a prime number.");
-        }else{
+        }else if(!sN.isPrime(Integer.parseInt(inputTF.getText()))){
             outputTF.setText(inputTF.getText() + " is not a prime number.");
         }
     }

@@ -11,7 +11,7 @@ public class NumberCheckerFacade
 {
     private List<Integer> checkedNumbers = new LinkedList<>();
     public List<Integer> checkNumbers(int min, int max, CheckerInterface checker){
-        for(int i = min; i <= max; i ++){
+        for(int i = min; i < max; i ++){                                       // <= max hvis intervallet er inklusiv 100
             if(checker.check(i)) {
                 checkedNumbers.add(i);
             }

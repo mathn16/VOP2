@@ -16,7 +16,8 @@ public class SpecialNumbers
 
     public boolean isPrime(int x){
         boolean prime = true;
-        for(int i = 1; i<x; i++){
+        int y = (int)(Math.sqrt(x))+1;
+        for(int i = 2; i<y; i++){
             if(x % i == 0){
                 prime = false;
             }
@@ -25,7 +26,8 @@ public class SpecialNumbers
 
     public boolean isPowerOf2(int x){
         boolean powOfTwo = false;
-        if(Math.sqrt(x) % 2 == 0){
+        double y = Math.sqrt(x);
+        if(y == (int)y){
             powOfTwo = true;
         }return powOfTwo;
     }
